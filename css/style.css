@@ -2,6 +2,7 @@ body {
     margin: 0;
 }
 
+/******** MAIN PAGE STYLE ********/
 #container {
     position: relative;
 }
@@ -25,6 +26,44 @@ body {
     width: auto;
 }
 
+/******** TIPS PAGE STYLE ********/
+#good-to-know {
+    background-color: #FFFAFB;
+    position: relative;
+}
+
+#tips-text {
+    text-align: justify;
+    margin-left: 400px;
+    margin-top: 45px;
+}
+
+#pics .tips{
+    float: left;
+    margin-left: 22px;
+    margin-top: 30px;
+    height: auto;
+    border: 4px solid black;
+    width: 280px;
+    display: block;
+}
+
+#pics .hki{
+    float: left;
+    margin-left: 22px;
+    margin-top: 25px;
+    height: auto;
+    border: 4px solid black;
+    width: 280px;
+    display: block;
+}
+
+#pics li {
+    list-style: none;
+    max-width: 300px;
+}
+
+/******** NAVBAR STYLE ********/
 #navbar {
     width: 100%;
     margin-top: 0;
