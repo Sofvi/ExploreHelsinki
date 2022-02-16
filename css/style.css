@@ -28,33 +28,42 @@ body {
 
 /******** TIPS PAGE STYLE ********/
 #good-to-know {
-    background-color: #FFFAFB;
+    background-color: #7F9183;
     position: relative;
 }
 
 #tips-text {
     text-align: justify;
     margin-left: 400px;
-    margin-top: 45px;
+    margin-top: 35px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+    background-color: white;
+    width: 980px;
+    padding: 30px;
+}
+
+em {
+    font-style: normal;
 }
 
 #pics .tips{
     float: left;
     margin-left: 22px;
-    margin-top: 30px;
+    margin-top: 19px;
     height: auto;
     border: 4px solid black;
-    width: 280px;
+    width: 289px;
     display: block;
 }
 
 #pics .hki{
     float: left;
     margin-left: 22px;
-    margin-top: 25px;
+    margin-top: 23px;
     height: auto;
     border: 4px solid black;
-    width: 280px;
+    width: 289px;
     display: block;
 }
 
