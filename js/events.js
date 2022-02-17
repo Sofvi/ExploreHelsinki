@@ -1,4 +1,10 @@
 'use strict';
+
+//Saa INFO napin toimimaan
+document.getElementById("navbar").onclick = function () {
+  location.href = "info.html";
+};
+
 const nappi = document.querySelector('button');
 const nimi = document.querySelector('p');
 
