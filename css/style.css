@@ -73,11 +73,16 @@ em {
 }
 
 /******** NAVBAR STYLE ********/
+#home {
+    padding-top: 0;
+    height: 30px;
+    width: 30px;
+}
 #navbar {
     width: 100%;
     margin-top: 0;
     margin-bottom: 10px;
-    padding-left: 4%;
+    padding-left: 0;
     padding-top: 20px;
     padding-bottom: 40px;
     background-color: white;}
@@ -96,7 +101,7 @@ em {
     align-content: center;
     align-items: center;
     text-align: center;
-    padding: 8px 100px;
+    padding: 10px 88px;
     text-decoration: none;
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
