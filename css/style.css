@@ -113,6 +113,13 @@ em {
     color: #023e8a;
     background-color: lightgoldenrodyellow; }
 
+/****************EVENTS STYLE**********************/
+#events #map {
+    height: 400px;
+    width: 600px;
+}
+
+
 
 
 
