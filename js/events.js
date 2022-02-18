@@ -1,12 +1,17 @@
 'use strict';
 
+const nappi = document.getElementById('nayta');
+
+nappi.addEventListener('click', function(evt) {
+  haeEventit();
+});
+
 //Saa INFO napin toimimaan
 document.getElementById("navbar").onclick = function () {
   location.href = "info.html";
 };
 
-const nappi = document.querySelector('button');
-const nimi = document.querySelector('p');
+const lista = document.getElementById('lista');
 
 const map = L.map('map');
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -43,21 +48,22 @@ function lisaaPiste(longitude, latitude, nimi) {
 }
 
 
-nappi.addEventListener('click', function(evt) {
-haeEventit();
-});
-
 async function haeEventit() {
-const proxy = 'https://api.allorigins.win/get?url=';
-const haku = 'https://open-api.myhelsinki.fi/v1/events/';
-const url = proxy + encodeURIComponent(haku);
+  const proxy = 'https://api.allorigins.win/get?url=';
+  const haku = 'https://open-api.myhelsinki.fi/v1/events/';
+  const url = proxy + encodeURIComponent(haku);
 
-const vastaus = await fetch(url);
-const data = await vastaus.json();
-const tapahtumat = JSON.parse(data.contents);
+  const vastaus = await fetch(url);
+  const data = await vastaus.json();
+  const tapahtumat = JSON.parse(data.contents);
+  console.log(tapahtumat);
 
-console.log(tapahtumat);
+  for (let i = 50; i <= 100; i++) {
+    lisaaPiste(tapahtumat.data[i].location.lon, tapahtumat.data[i].location.lat,
+        tapahtumat.data[i].name.fi);
+    const list = document.createElement('li');
+      list.textContent += tapahtumat.data[i].name.fi;
+      lista.appendChild(list);
+  }
 }
-
-
 
