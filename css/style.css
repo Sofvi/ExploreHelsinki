@@ -139,13 +139,38 @@ em {
 #navbar li a:hover {
     color: #023e8a;
     background-color: lightgoldenrodyellow; }
+.navbar .icon {
+    display: none;
+}
 
-/****************EVENTS STYLE**********************/
+/********EVENTS STYLE********/
 #events #map {
     height: 400px;
     width: 600px;
 }
 
+/********MEDIA QUERY********/
+/*
+@media screen and (max-width: 700px) {
+    .navbar a:not(:first-child) {display: none;}
+    .navbar a.icon {
+        float: right;
+        display: block;
+    }
+}
+@media screen and (max-width: 640px){
+    .navbar.responsive a {position: relative}
+    .navbar.responsive a.icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .navbar.responsive a{
+        float: none;
+        display: block;
+        text-align: left;
+    }
+}*/
 
 
 
