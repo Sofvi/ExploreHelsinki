@@ -148,6 +148,20 @@ em {
     height: 400px;
     width: 600px;
 }
+#events article {
+    background-color: burlywood;
+    margin: 10px;
+}
+#events p {
+    margin: 2px;
+}
+#events h3 {
+    margin: 3px;
+}
+#events image {
+    height: 200px;
+    width: 300px;
+}
 
 /********MEDIA QUERY********/
 /*
