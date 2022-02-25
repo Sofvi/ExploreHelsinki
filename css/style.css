@@ -151,17 +151,19 @@ em {
 #events article {
     background-color: burlywood;
     margin: 10px;
+    padding: 5px;
 }
 #events p {
-    margin: 2px;
+    margin: 5px;
 }
 #events h3 {
-    margin: 3px;
+    margin: 10px;
+    margin-left: 5px;
 }
-#events image {
-    height: 200px;
-    width: 300px;
+#events a {
+    margin: 5px;
 }
+
 
 /********MEDIA QUERY********/
 /*
