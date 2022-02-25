@@ -163,6 +163,15 @@ em {
 #events a {
     margin: 5px;
 }
+.evt {
+    float: left;
+    margin-left: 22px;
+    margin-top: 19px;
+    height: auto;
+    border: 4px solid black;
+    width: 289px;
+
+}
 
 
 /********MEDIA QUERY********/
