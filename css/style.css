@@ -57,6 +57,37 @@ em {
     max-width: 300px;
 }
 
+/******** LINKS PAGE STYLE ********/
+#links {
+    background-color: #7F9183;
+    position: relative;
+}
+.lnk{
+    float: left;
+    margin-left: 52px;
+    margin-top: 28px;
+    height: auto;
+    border: 4px solid black;
+    width: 289px;
+}
+#link {
+    float: left;
+    text-align: justify;
+    margin-top: 35px;
+    margin-left: 52px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+    background-color: white;
+    width: 30%;
+    padding: 20px 50px 83px 20px;
+}
+.hki1 {
+    width: 54%;
+    margin-top: 28px;
+    float: right;
+    margin-right: 80px;
+}
+
 /******** NAVBAR STYLE ********/
 #home {
     padding-top: 0;
@@ -212,6 +243,26 @@ em {
         margin-top: 180px;
         width: auto;
     }
+    .lnk {
+        float: top;
+        position: center;
+        display: block;
+        margin-left: 25%;
+    }
+    .hki1 {
+        position: absolute;
+        display: block;
+        top: 99%;
+        margin-left: 25%;
+        padding-bottom: 40px;
+    }
+    #link {
+        float: left;
+        position: center;
+        margin-left: 40px;
+        margin-right: 40px;
+        width: auto;
+    }
 }
 /*Pienelle näytölle*/
 @media only screen and (max-width: 600px) {
@@ -243,8 +294,28 @@ em {
         position: absolute;
         display: block;
         top: 99%;
-        margin-left: 65px;
-        margin-bottom: 20px;
+        margin-left: 63px;
+        margin-bottom: 40px;
+    }
+    .lnk {
+        float: top;
+        position: center;
+        display: block;
+        margin-left: 90px;
+    }
+    .hki1 {
+        position: absolute;
+        display: block;
+        top: 99%;
+        margin-left: 25%;
+        padding-bottom: 40px;
+    }
+    #link {
+        float: left;
+        position: center;
+        margin-left: 40px;
+        margin-right: 40px;
+        width: auto;
     }
 }
 /*
