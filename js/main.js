@@ -2,7 +2,7 @@
 
 //Saa INFO napin toimimaan
 document.getElementById("navbar").onclick = function () {
-  location.href = "../info.html";
+  location.href = "info.html";
 };
 
 /*function myFunction() {
