@@ -39,7 +39,7 @@ em {
     height: auto;
     border: 4px solid black;
     width: 289px;
-    display: block;
+
 }
 
 #pics .hki{
@@ -49,7 +49,7 @@ em {
     height: auto;
     border: 4px solid black;
     width: 289px;
-    display: block;
+
 }
 
 #pics li {
@@ -69,7 +69,7 @@ em {
     margin-bottom: 10px;
     padding-left: 0;
     padding-top: 20px;
-    padding-bottom: 40px;
+    padding-bottom: 55px;
     background-color: white;
 }
 #navbar ul {
@@ -166,25 +166,84 @@ em {
 
 
 /********MEDIA QUERY********/
-/*
-@media screen and (max-width: 700px) {
-    .navbar a:not(:first-child) {display: none;}
-    .navbar a.icon {
-        float: right;
-        display: block;
+/*Keskikokoiselle näytölle*/
+@media only screen and (min-width: 600px) and (max-width: 1500px) {
+    #navbar li {
+        width: 100%;
+        position: center;
+        background-color: white;
+    }
+    #navbar li a {
+        font-size: 13px;
+    }
+    .dropdown .dropBTN {
+        display: none;
+    }
+    #pics .tips {
+        float: top;
+        margin-top: 30px;
+    }
+    #pics .hki {
+        float: bottom;
+    }
+    #tips-text {
+        position: center;
+        float: bottom;
+        margin-right: 50px;
+        margin-top: 180px;
+        width: auto;
     }
 }
-@media screen and (max-width: 640px){
-    .navbar.responsive a {position: relative}
-    .navbar.responsive a.icon {
-        position: absolute;
-        right: 0;
-        top: 0;
+/*Pienelle näytölle*/
+@media only screen and (max-width: 600px) {
+    #navbar li {
+        width: 100%;
+        position: center;
+        background-color: white;
     }
-    .navbar.responsive a{
-        float: none;
+    #navbar li a {
+        font-size: 13px;
+    }
+    .dropdown .dropBTN {
+        display: none;
+    }
+    #tips-text {
+        float: left;
+        position: center;
+        margin-left: 40px;
+        margin-right: 40px;
+        width: auto;
+    }
+    #pics .tips {
+        float: top;
+        position: center;
         display: block;
-        text-align: left;
+        margin-left: 65px;
+    }
+    #pics .hki {
+        position: absolute;
+        display: block;
+        top: 99%;
+        margin-left: 65px;
+        margin-bottom: 20px;
+    }
+}
+/*
+@media only screen and (min-width: 600px) and (max-width: 1500px) {
+    #navbar li {
+        width: 50%;
+        float: none;
+    }
+    .dropdown .dropBTN {
+        display: none;
+    }
+    #container img {
+        position: relative;
+        float: right;
+        width: 50%;
+        padding-left: 0;
+        height: auto;
+        display: block;
     }
 }*/
 
