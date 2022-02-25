@@ -1,10 +1,12 @@
 'use strict';
+
 /*
 const nappi = document.getElementById('nayta');
 nappi.addEventListener('click', function(evt) {
   haeEventit();
 });
 */
+
 haeEventit();
 
 //Saa INFO napin toimimaan
@@ -41,6 +43,7 @@ const redIcon = new L.Icon({
 // Funktio, joka ajetaan, kun paikkatiedot on haettu
 function success(pos) {
   const crd = pos.coords;
+  console.log(crd);
   map.setView([crd.latitude, crd.longitude], 12);
   L.marker([crd.latitude, crd.longitude], {icon: redIcon}).addTo(map)
   .bindPopup('Olet tässä', {closeOnClick: false, autoClose: false}).openPopup();
@@ -53,6 +56,7 @@ function error(err) {
 
 navigator.geolocation.getCurrentPosition(success, error, options);
 
+/*
 function navigoi(lon, lat, omalon, omalat) {
   L.Routing.control({
     waypoints: [
@@ -62,14 +66,26 @@ function navigoi(lon, lat, omalon, omalat) {
     routeWhileDragging: false
   }).addTo(map);
 }
+*/
 
 // Funktio, jonka avulla voi lisätä pisteitä kartalle
 function lisaaPiste(longitude, latitude, nimi) {
-  const marker = L.marker([latitude, longitude]).
+  L.marker([latitude, longitude]).
   addTo(map).bindPopup(nimi + '<br><button id="navi">Reititä</button>').openPopup();
   const navi = document.getElementById('navi');
   navi.addEventListener('click', function (evt) {
-    alert('testi');
+    navigator.geolocation.getCurrentPosition(success, error, options);
+  //  alert('testi');
+    function success(pos) {
+      const crd = pos.coords;
+      L.Routing.control({
+        waypoints: [
+          L.latLng(crd.latitude, crd.longitude),
+          L.latLng(latitude, longitude)
+        ],
+        routeWhileDragging: false
+      }).addTo(map, redIcon);
+    }
   });
 }
 
@@ -94,9 +110,6 @@ console.log(tapahtumat);
     osoite.innerHTML = tapahtuma.location.address.street_address
         + ', ' + tapahtuma.location.address.locality;
 
-  // const kuva = document.createElement('img');
-  // kuva.src = tapahtuma.description.images[0].url;
-
     const nimi = document.createElement('h3');
     nimi.innerText = tapahtuma.name.fi;
 
@@ -104,16 +117,12 @@ console.log(tapahtumat);
     naytanappi.innerHTML = 'Nayta kartalla';
 
     naytanappi.addEventListener('click', function (evt) {
+      map._panes.marker.remove();
       lisaaPiste(tapahtuma.location.lon, tapahtuma.location.lat,
           tapahtuma.name.fi);
       document.querySelector('h1').scrollIntoView({
         behavior: 'smooth'});
     });
-
-    const linkki = document.createElement('a');
-    linkki.href = tapahtuma.info_url;
-    linkki.target = "_blank";
-    linkki.innerHTML = 'Lisätietoa' + '  ';
 
     const artikkeli = document.createElement('article');
     const li = document.createElement('li');
@@ -122,7 +131,6 @@ console.log(tapahtumat);
     // artikkeli.appendChild(kuva);
     artikkeli.appendChild(kuvaus);
     artikkeli.appendChild(osoite);
-    artikkeli.appendChild(linkki);
     artikkeli.appendChild(naytanappi);
 
     li.appendChild(artikkeli)

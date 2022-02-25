@@ -144,12 +144,18 @@ em {
 }
 
 /********EVENTS STYLE********/
+#events {
+    background-color: #7F9183;
+    position: relative;
+}
 #events #map {
     height: 400px;
     width: 600px;
+    text-align: justify;
+    margin-left: 900px;
 }
 #events article {
-    background-color: burlywood;
+    background: white;
     margin: 10px;
     padding: 5px;
 }
@@ -171,6 +177,10 @@ em {
     border: 4px solid black;
     width: 289px;
 
+}
+#events #tiedot{
+    float: left;
+    margin-top: 20px;
 }
 
 
