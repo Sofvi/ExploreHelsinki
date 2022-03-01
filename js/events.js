@@ -64,7 +64,7 @@ function lisaaPiste(longitude, latitude, nimi) {
   const navi = document.getElementById('navi');
   navi.addEventListener('click', function (evt) {
     navigator.geolocation.getCurrentPosition(success, error, options);
-  //  alert('testi');
+    alert('testi');
     function success(pos) {
       const crd = pos.coords;
       L.Routing.control({
@@ -81,16 +81,19 @@ function lisaaPiste(longitude, latitude, nimi) {
 async function haeEventit() {
 const proxy = 'https://api.allorigins.win/get?url=';
 const haku = 'https://open-api.myhelsinki.fi/v1/events/';
-const url = proxy + encodeURIComponent(haku);
+const linkki = proxy + encodeURIComponent(haku);
 
-const vastaus = await fetch(url);
+const vastaus = await fetch(linkki);
 const data = await vastaus.json();
 const tapahtumat = JSON.parse(data.contents);
 
-console.log(tapahtumat);
+const jarjestys = tapahtumat.data.filter(a => a.event_dates.starting_day && new Date().getTime() < new Date(a.event_dates.starting_day)
+      .getTime()).sort((a, b) => new Date(a.event_dates.starting_day) - new Date(b.event_dates.starting_day));
 
-  for (let i = 0; i <= 20; i++) {
-    const tapahtuma = tapahtumat.data[i];
+  for (let i = 0; i <= 100; i++) {
+    lisaaPiste(jarjestys[i].location.lon, jarjestys[i].location.lat, jarjestys[i].name.fi);
+    console.log(jarjestys[i]);
+    const tapahtuma = jarjestys[i];
 
     const kuvaus = document.createElement('p');
     kuvaus.textContent = tapahtuma.description.intro;
@@ -103,12 +106,12 @@ console.log(tapahtumat);
     nimi.innerText = tapahtuma.name.fi;
 
     const naytanappi = document.createElement('button');
-    naytanappi.innerHTML = 'Nayta kartalla';
+    naytanappi.innerHTML = 'Show on map';
 
     naytanappi.addEventListener('click', function (evt) {
       lisaaPiste(tapahtuma.location.lon, tapahtuma.location.lat,
           tapahtuma.name.fi);
-      document.querySelector('h1').scrollIntoView({
+      document.getElementById('navbar').scrollIntoView({
         behavior: 'smooth'});
     });
 
@@ -119,6 +122,13 @@ console.log(tapahtumat);
     artikkeli.appendChild(kuvaus);
     artikkeli.appendChild(osoite);
     artikkeli.appendChild(naytanappi);
+    if (tapahtuma.info_url != null) {
+      const linkki = document.createElement('a');
+      linkki.href = jarjestys[i].info_url;
+      linkki.textContent = 'More Info';
+      linkki.target='_blank';
+      artikkeli.appendChild(linkki);
+    }
 
     li.appendChild(artikkeli)
     lista.appendChild(li);
