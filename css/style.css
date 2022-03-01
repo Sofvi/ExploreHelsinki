@@ -24,8 +24,8 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-size: 17px;
     background-color: white;
-    width: 980px;
-    padding: 30px;
+    width: 650px;
+    padding: 5px 30px 10px;
 }
 
 em {
@@ -277,6 +277,26 @@ em {
         margin-right: 40px;
         width: auto;
     }
+    .evt {
+        float: top;
+        position: center;
+        display: block;
+        margin-left: 135px;
+    }
+    #vasenpuoli .es {
+        float: left;
+        height: 300px;
+        width: 90%;
+        padding-top: 0;
+        margin-top: 17px;
+        margin-right: 25px;
+        margin-bottom: 5px;
+    }
+    #events #lista {
+        float: left;
+        height: 200px;
+        margin-left: 20px;
+    }
 }
 /*Pienelle näytölle*/
 @media only screen and (max-width: 600px) {
@@ -311,7 +331,7 @@ em {
         margin-left: 63px;
         margin-bottom: 40px;
     }
-    .lnk {
+    .lnk  {
         float: top;
         position: center;
         display: block;
@@ -330,6 +350,26 @@ em {
         margin-left: 40px;
         margin-right: 40px;
         width: auto;
+    }
+    .evt {
+        float: top;
+        position: center;
+        display: block;
+       margin-left: 60px;
+    }
+    #vasenpuoli .es {
+        float: left;
+        height: 300px;
+        width: 90%;
+        padding-top: 0;
+        margin-top: 17px;
+        margin-right: 25px;
+        margin-bottom: 5px;
+    }
+    #events #lista {
+        float: left;
+        height: 200px;
+        margin-left: 20px;
     }
 }
 /*
