@@ -179,20 +179,27 @@ em {
     background-color: #7F9183;
     position: relative;
 }
+#vasenpuoli {
+    list-style: none;
+}
 #vasenpuoli .es {
-    float: left;
-    margin-left: 22px;
-    height: 400px;
-    width: 600px;
+    float: right;
+    height: 600px;
+    width: 70%;
+    padding-top: 0;
+    margin-top: 17px;
+    margin-right: 25px;
 }
 #events #tiedot {
-    width: 50%;
+    position: relative;
+    width: 25%;
     text-align: justify;
-    margin-left: 600px;
-    margin-top: 35px;
+    margin-left: 8px;
+    margin-top: 12%;
     font-family: 'Open Sans', sans-serif;
-    font-size: 17px;
-    padding: 15px;
+    font-size: 13px;
+    padding-bottom: 20px;
+    padding-left: 10px;
 }
 #events article{
     background: white;
