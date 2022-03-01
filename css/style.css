@@ -179,23 +179,29 @@ em {
     background-color: #7F9183;
     position: relative;
 }
-#events #map {
+#vasenpuoli .es {
+    float: left;
+    margin-left: 22px;
     height: 400px;
     width: 600px;
-    text-align: justify;
-    margin-left: 900px;
 }
-#events article {
+#events #tiedot {
+    width: 50%;
+    text-align: justify;
+    margin-left: 600px;
+    margin-top: 35px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+    padding: 15px;
+}
+#events article{
     background: white;
-    margin: 10px;
-    padding: 5px;
 }
 #events p {
     margin: 5px;
 }
 #events h3 {
-    margin: 10px;
-    margin-left: 5px;
+    margin: 10px 10px 10px 5px;
 }
 #events a {
     margin: 5px;
@@ -207,13 +213,7 @@ em {
     height: auto;
     border: 4px solid black;
     width: 289px;
-
 }
-#events #tiedot{
-    float: left;
-    margin-top: 20px;
-}
-
 
 /********MEDIA QUERY********/
 /*Keskikokoiselle näytölle*/

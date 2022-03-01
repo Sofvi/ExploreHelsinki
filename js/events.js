@@ -56,17 +56,6 @@ function error(err) {
 
 navigator.geolocation.getCurrentPosition(success, error, options);
 
-/*
-function navigoi(lon, lat, omalon, omalat) {
-  L.Routing.control({
-    waypoints: [
-      L.latLng(lon, lat),
-      L.latLng(omalon, omalat)
-    ],
-    routeWhileDragging: false
-  }).addTo(map);
-}
-*/
 
 // Funktio, jonka avulla voi lisätä pisteitä kartalle
 function lisaaPiste(longitude, latitude, nimi) {
@@ -84,7 +73,7 @@ function lisaaPiste(longitude, latitude, nimi) {
           L.latLng(latitude, longitude)
         ],
         routeWhileDragging: false
-      }).addTo(map, redIcon);
+      }).addTo(map);
     }
   });
 }
@@ -100,7 +89,7 @@ const tapahtumat = JSON.parse(data.contents);
 
 console.log(tapahtumat);
 
-  for (let i = 0; i <= 100; i++) {
+  for (let i = 0; i <= 20; i++) {
     const tapahtuma = tapahtumat.data[i];
 
     const kuvaus = document.createElement('p');
@@ -117,7 +106,6 @@ console.log(tapahtumat);
     naytanappi.innerHTML = 'Nayta kartalla';
 
     naytanappi.addEventListener('click', function (evt) {
-      map._panes.marker.remove();
       lisaaPiste(tapahtuma.location.lon, tapahtuma.location.lat,
           tapahtuma.name.fi);
       document.querySelector('h1').scrollIntoView({
@@ -128,7 +116,6 @@ console.log(tapahtumat);
     const li = document.createElement('li');
 
     artikkeli.appendChild(nimi);
-    // artikkeli.appendChild(kuva);
     artikkeli.appendChild(kuvaus);
     artikkeli.appendChild(osoite);
     artikkeli.appendChild(naytanappi);
