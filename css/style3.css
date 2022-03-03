@@ -1,10 +1,9 @@
-body {
-    display: flex;
-   justify-content: center;
-   align-items: center;
-   height: 100vh;
-   margin: 0;
-   font-family: 'Roboto', sans-serif;
+aside {
+    position: absolute;
+    top: 92px;
+    right: 10px;
+    width: 370px;
+    font-family: 'Open Sans', sans-serif;
    }
    .card{
        background-color: lightgray;
@@ -13,6 +12,7 @@ body {
        color: aliceblue;
        padding: 2em;
        border-radius: 15px;
-       max-width: 420px;
+       max-width: 400px;
+       height: 534px;
        margin: 1em;
    }
