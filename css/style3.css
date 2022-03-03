@@ -8,7 +8,7 @@ body {
    }
    .card{
        background-color: lightgray;
-       background-image: url(Helsinki3.jpeg);
+       background-image: url(/img/Helsinki3.jpeg);
    
        color: aliceblue;
        padding: 2em;
