@@ -59,7 +59,7 @@ haeEventit().then(function(jarjesta) {
     naytanappi.innerHTML = 'Show on map';
 
     naytanappi.addEventListener('click', function (evt) {
-      avaaPiste(tapahtuma.location.lon, tapahtuma.location.lat);
+      avaaPiste(tapahtuma.location.lon, tapahtuma.location.lat, tapahtuma.name.fi, {icon: eventIcon});
       document.getElementById('navbar').scrollIntoView({
         behavior: 'smooth'});
     });
@@ -72,7 +72,10 @@ haeEventit().then(function(jarjesta) {
             L.latLng(crd.latitude, crd.longitude),
             L.latLng(tapahtuma.location.lat, tapahtuma.location.lon)
           ],
-          routeWhileDragging: true
+          routeWhileDragging: true,
+          createMarker: function() {
+            return null;
+          }
         }).addTo(map);
     });
 
@@ -128,8 +131,8 @@ layer.addLayer(marker).addTo(map);
 return marker;
 }
 
-function avaaPiste(lon, lat) {
-   layer.openPopup(lat, lon);
+function avaaPiste(lon, lat, nimi, icon) {
+
 }
 
 // Funktio tapahtumien hakuun ja niiden järjestäminen tämän hetkisestä kellonajasta alkaen
