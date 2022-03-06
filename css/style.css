@@ -279,10 +279,7 @@ em {
         width: auto;
     }
     .evt {
-        float: top;
-        position: center;
-        display: block;
-        margin-left: 135px;
+        display: none;
     }
     #vasenpuoli .es {
         float: left;
@@ -298,6 +295,15 @@ em {
         height: 200px;
         margin-left: 20px;
     }
+    #good-to-know .card {
+        position: relative;
+        width: 250px;
+        height: auto;
+        margin-top: 780px;
+        right: 80%;
+        margin-bottom: 20px;
+
+    }
 }
 /*Pienelle näytölle*/
 @media only screen and (max-width: 600px) {
@@ -312,6 +318,15 @@ em {
     .dropdown .dropBTN {
         display: none;
     }
+    #container img {
+        display: none;
+    }
+    #main {
+        background-image: url(/img/hki-m.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 0 230px;
+    }
     #tips-text {
         float: left;
         position: center;
@@ -320,17 +335,10 @@ em {
         width: auto;
     }
     #pics .tips {
-        float: top;
-        position: center;
-        display: block;
-        margin-left: 65px;
+        display: none;
     }
     #pics .hki {
-        position: absolute;
-        display: block;
-        top: 99%;
-        margin-left: 63px;
-        margin-bottom: 40px;
+        display: none;
     }
     .lnk  {
         float: top;
@@ -353,10 +361,7 @@ em {
         width: auto;
     }
     .evt {
-        float: top;
-        position: center;
-        display: block;
-       margin-left: 60px;
+        display: none;
     }
     #vasenpuoli .es {
         float: left;
@@ -372,25 +377,16 @@ em {
         height: 200px;
         margin-left: 20px;
     }
-}
-/*
-@media only screen and (min-width: 600px) and (max-width: 1500px) {
-    #navbar li {
-        width: 50%;
-        float: none;
-    }
-    .dropdown .dropBTN {
-        display: none;
-    }
-    #container img {
-        position: relative;
-        float: right;
-        width: 50%;
-        padding-left: 0;
+    #good-to-know .card {
+        position: absolute;
+        width: 300px;
         height: auto;
-        display: block;
+        margin-top: 850px;
+        right: 10%;
+
     }
-}*/
+}
+
 
 
 
