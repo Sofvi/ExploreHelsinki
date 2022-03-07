@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="PROJECT" libraries="{font-awesome, leaflet, leaflet-routing-machine}" />
+    <file url="PROJECT" libraries="{font-awesome, jquery, leaflet, leaflet-easybutton, leaflet-routing-machine}" />
   </component>
 </project>

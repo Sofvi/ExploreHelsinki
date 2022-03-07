@@ -3,6 +3,7 @@
 const lista = document.getElementById('lista');
 const layer = L.layerGroup();
 
+// Kartta sivustolle
 const map = L.map('map');
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
@@ -42,7 +43,7 @@ haeEventit().then(function(jarjesta) {
   for (let i = 0; i <= 100; i++) {
     const tapahtuma = jarjesta[i];
     lisaaPiste(tapahtuma.location.lon, tapahtuma.location.lat, tapahtuma.name.fi, eventIcon).on('click', function() {
-      document.getElementById(tapahtuma.name.fi).scrollIntoView();
+      document.getElementById(tapahtuma.id).scrollIntoView();
     });
 
     const kuvaus = document.createElement('p');
@@ -59,7 +60,7 @@ haeEventit().then(function(jarjesta) {
     naytanappi.innerHTML = 'Show on map';
 
     naytanappi.addEventListener('click', function (evt) {
-      avaaPiste(tapahtuma.location.lon, tapahtuma.location.lat, tapahtuma.name.fi, {icon: eventIcon});
+      suljeNavi();
       document.getElementById('navbar').scrollIntoView({
         behavior: 'smooth'});
     });
@@ -67,13 +68,13 @@ haeEventit().then(function(jarjesta) {
     const navi = document.createElement('button');
     navi.innerHTML = 'Route';
     navi.addEventListener('click', function (evt) {
-        L.Routing.control({
+        window.routing = L.Routing.control({
           waypoints: [
             L.latLng(crd.latitude, crd.longitude),
             L.latLng(tapahtuma.location.lat, tapahtuma.location.lon)
           ],
           routeWhileDragging: true,
-          createMarker: function() {
+          createMarker: function () {
             return null;
           }
         }).addTo(map);
@@ -85,11 +86,12 @@ haeEventit().then(function(jarjesta) {
     if (minuutit.endsWith('0', 1)) {
       minuutit += '0';
     }
-    ajat.innerHTML = pvm.getDate() + '.' + (pvm.getMonth() + 1) + '.' + pvm.getFullYear() + ' Klo: ' + pvm.getHours() + '.' + minuutit;
+    ajat.innerHTML = pvm.getDate() + '.' + (pvm.getMonth() + 1) + '.' + pvm.getFullYear() + ' Klo: ' + pvm.getHours() + ':' + minuutit;
 
     const artikkeli = document.createElement('article');
+    artikkeli.id = tapahtuma.id;
+
     const li = document.createElement('li');
-    li.id = tapahtuma.name.fi;
 
     artikkeli.appendChild(nimi);
     artikkeli.appendChild(kuvaus);
@@ -115,7 +117,7 @@ function success(pos) {
   window.crd = pos.coords;
   map.setView([crd.latitude, crd.longitude], 12);
   L.marker([crd.latitude, crd.longitude], {icon: omaIkoni}).addTo(map)
-  .bindPopup('Olet tässä', {autoClose: false}).openPopup();
+      .bindPopup('Olet tässä', {autoClose: false}).openPopup();
 }
 
 // Funktio, joka ajetaan, jos paikkatietojen hakemisessa tapahtuu virhe
@@ -125,32 +127,36 @@ function error(err) {
 
 // Funktio, jonka avulla voi lisätä pisteitä kartalle
 function lisaaPiste(lon, lat, nimi, icon) {
-const marker = new L.marker([lat, lon], {icon: icon});
-marker.bindPopup(nimi);
-layer.addLayer(marker).addTo(map);
-return marker;
+  const marker = new L.marker([lat, lon], {icon: icon});
+  marker.bindPopup(nimi);
+  layer.addLayer(marker).addTo(map);
+  return marker;
 }
 
 function avaaPiste(lon, lat, nimi, icon) {
 
 }
 
-// Funktio tapahtumien hakuun ja niiden järjestäminen tämän hetkisestä kellonajasta alkaen
-async function haeEventit() {
-const proxy = 'https://api.allorigins.win/get?url=';
-const haku = 'https://open-api.myhelsinki.fi/v1/events/';
-const url = proxy + encodeURIComponent(haku);
-
-const vastaus = await fetch(url);
-const data = await vastaus.json();
-const tapahtumat = JSON.parse(data.contents);
-  return tapahtumat.data.filter(
-    a => a.event_dates.starting_day && new Date().getTime() <
-        new Date(a.event_dates.starting_day).getTime()).
-    sort((a, b) => new Date(a.event_dates.starting_day) -
-        new Date(b.event_dates.starting_day));
+// Funktio reitityksen sulkuun
+function suljeNavi() {
+    routing.spliceWaypoints(0, 2);
 }
 
+// Funktio tapahtumien hakuun ja niiden järjestäminen tämän hetkisestä kellonajasta alkaen
+async function haeEventit() {
+  const proxy = 'https://api.allorigins.win/get?url=';
+  const haku = 'https://open-api.myhelsinki.fi/v1/events/';
+  const url = proxy + encodeURIComponent(haku);
+
+  const vastaus = await fetch(url);
+  const data = await vastaus.json();
+  const tapahtumat = JSON.parse(data.contents);
+  return tapahtumat.data.filter(
+      a => a.event_dates.starting_day && new Date().getTime() <
+          new Date(a.event_dates.starting_day).getTime()).
+  sort((a, b) => new Date(a.event_dates.starting_day) -
+      new Date(b.event_dates.starting_day));
+}
 
 
 
