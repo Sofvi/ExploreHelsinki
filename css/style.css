@@ -230,6 +230,30 @@ em {
     padding-left: 5px;
 }
 
+/********INFO STYLE********/
+.container2 {
+    position: relative;
+    text-align: center;
+}
+.infotxt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+    background-color: white;
+    width: 650px;
+    padding: 15px 30px 10px;
+}
+.container2 img {
+    position: relative;
+    width: 100%;
+    padding-left: 0;
+    height: auto;
+    display: block;
+}
+
 /********MEDIA QUERY********/
 /*Keskikokoiselle näytölle*/
 @media only screen and (min-width: 600px) and (max-width: 1500px) {
@@ -302,7 +326,25 @@ em {
         margin-top: 780px;
         right: 80%;
         margin-bottom: 20px;
-
+    }
+    #info {
+        background-image: url(/img/helsinki2-m.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 0 230px;
+    }
+    .container2 img {
+        display: none;
+    }
+    .infotxt {
+        position: absolute;
+        top: 350px;
+        transform: translate(-50%, -50%);
+        font-size: 17px;
+        font-family: 'Open Sans', sans-serif;
+        background-color: white;
+        width: auto;
+        padding: 15px 30px 10px;
     }
 }
 /*Pienelle näytölle*/
@@ -384,6 +426,25 @@ em {
         margin-top: 850px;
         right: 10%;
 
+    }
+    #info {
+        background-image: url(/img/helsinki2-m.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 0 230px;
+    }
+    .container2 img {
+        display: none;
+    }
+    .infotxt {
+        position: absolute;
+        top: 350px;
+        transform: translate(-50%, -50%);
+        font-size: 17px;
+        font-family: 'Open Sans', sans-serif;
+        background-color: white;
+        width: auto;
+        padding: 15px 30px 10px;
     }
 }
 
