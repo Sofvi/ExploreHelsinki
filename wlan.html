@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="verkot">
 <head>
     <title>Helsinki for Tourists</title>
     <meta charset="UTF-8">
@@ -17,8 +17,8 @@
             crossorigin="">
         </script>
         <style>
-          #map { height: 300px;
-            width: 600px;
+          #map { height: 390px;
+            width: 800px;
          }  
         </style>
    
@@ -42,8 +42,10 @@
         </div>
     </ul>
 </nav>
-<div id="map">
-    </div>
+<ul id="kartta">
+    <li><img src="img/wlan.png" alt="wlan" class="wlan" width="250"></li>
+    <li><div id="map" class="wlan-map"></div></li>
+   </ul>
 <script src="js/wlan.js"></script>
 
 

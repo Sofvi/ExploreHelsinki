@@ -230,6 +230,23 @@ em {
     padding-left: 5px;
 }
 
+/********WLAN*******/
+#kartta {
+    list-style: none;
+}
+#kartta .wlan-map {
+    float: right;
+    height: 600px;
+    width: 70%;
+    padding-top: 0;
+    margin-top: 17px;
+    margin-right: 25px;
+}
+#verkot{
+    background-color: #7F9183;
+    position: relative;
+}
+
 /********MEDIA QUERY********/
 /*Keskikokoiselle näytölle*/
 @media only screen and (min-width: 600px) and (max-width: 1500px) {
@@ -302,6 +319,16 @@ em {
         margin-top: 780px;
         right: 80%;
         margin-bottom: 20px;
+
+    }
+   #kartta .wlan-map{
+        float: left;
+        height: 300px;
+        width: 90%;
+        padding-top: 0;
+        margin-top: 17px;
+        margin-right: 25px;
+        margin-bottom: 5px;
 
     }
 }
@@ -384,6 +411,19 @@ em {
         margin-top: 850px;
         right: 10%;
 
+    }
+   #kartta .wlan-map{
+        float: left;
+        height: 300px;
+        width: 90%;
+        padding-top: 0;
+        margin-top: 17px;
+        margin-right: 25px;
+        margin-bottom: 5px;
+
+    }
+    #kartta .wlan{
+        display: none;
     }
 }
 
