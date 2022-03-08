@@ -8,7 +8,7 @@ const wifiIcon = L.icon({
   popupAnchor: [1, -34],
 },
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; Nafisul Nazrul' , 
 }).addTo(map));
 
 
@@ -25,7 +25,7 @@ function success(pos) {
   map.setView([crd.latitude, crd.longitude], 12);
 
   L.marker([crd.latitude, crd.longitude]).addTo(map)
-    .bindPopup('Olet tässä', { closeOnClick: false, autoClose: false }).openPopup();
+    .bindPopup('Your location', { closeOnClick: false, autoClose: false }).openPopup();
 }
 
 // Funktio, joka ajetaan, jos paikkatietojen hakemisessa tapahtuu virhe
