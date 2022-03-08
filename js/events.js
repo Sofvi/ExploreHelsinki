@@ -43,7 +43,9 @@ haeEventit().then(function(jarjesta) {
   for (let i = 0; i <= 100; i++) {
     const tapahtuma = jarjesta[i];
     lisaaPiste(tapahtuma.location.lon, tapahtuma.location.lat, tapahtuma.name.fi, eventIcon).on('click', function() {
-      document.getElementById(tapahtuma.id).scrollIntoView();
+      const elementti = document.getElementById(tapahtuma.id);
+      elementti.scrollIntoView();
+      vari(elementti);
     });
 
     const kuvaus = document.createElement('p');
@@ -125,6 +127,14 @@ function error(err) {
   console.warn(`ERROR(${err.code}): ${err.message}`);
 }
 
+function vari(element) {
+  const alku = element.style.backgroundColor;
+  element.style.backgroundColor="#E27E7E";
+  setTimeout(function() {
+    element.style.backgroundColor=alku;
+  }, 1000);
+}
+
 // Funktio, jonka avulla voi lisätä pisteitä kartalle
 function lisaaPiste(lon, lat, nimi, icon) {
   const marker = new L.marker([lat, lon], {icon: icon});
@@ -157,6 +167,7 @@ async function haeEventit() {
   sort((a, b) => new Date(a.event_dates.starting_day) -
       new Date(b.event_dates.starting_day));
 }
+
 
 
 
