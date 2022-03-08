@@ -1,7 +1,9 @@
 'use strict';
 
 const lista = document.getElementById('lista');
-const layer = L.layerGroup();
+const layer = L.featureGroup();
+let crd;
+let routing;
 
 // Kartta sivustolle
 const map = L.map('map');
@@ -19,7 +21,7 @@ const options = {
 // Paikkatiedon haun käynnistys
 navigator.geolocation.getCurrentPosition(success, error, options);
 
-// Punainen markkeri omaan sijaintiin
+// Markkeri omaan sijaintiin
 const omaIkoni = new L.Icon({
   iconUrl: 'img/oma-ikoni1.png',
   iconSize: [25, 41],
@@ -27,6 +29,7 @@ const omaIkoni = new L.Icon({
   popupAnchor: [1, -34],
 });
 
+// Markkeri tapahtumille
 const eventIcon = new L.Icon({
   iconUrl: 'img/tapahtuma-icon5.png',
   iconSize: [25, 41],
@@ -51,30 +54,29 @@ haeEventit().then(function(jarjesta) {
         + ', ' + tapahtuma.location.address.locality;
 
     const nimi = document.createElement('h3');
-    nimi.innerText = tapahtuma.name.fi;
-
-    const naytanappi = document.createElement('button');
-    naytanappi.innerHTML = 'Show on map';
-
-    naytanappi.addEventListener('click', function (evt) {
-      suljeNavi();
-      document.getElementById('navbar').scrollIntoView({
-        behavior: 'smooth'});
-    });
+    if(tapahtuma.name.en === null || tapahtuma.name.en === '') {
+      nimi.innerHTML = tapahtuma.name.fi;
+    } else {
+      nimi.innerHTML = tapahtuma.name.en;
+    }
 
     const navi = document.createElement('button');
-    navi.innerHTML = 'Route';
+    navi.innerHTML += 'Route';
     navi.addEventListener('click', function (evt) {
-        window.routing = L.Routing.control({
+      if(routing == null) {
+        routing = L.Routing.control({
           waypoints: [
             L.latLng(crd.latitude, crd.longitude),
             L.latLng(tapahtuma.location.lat, tapahtuma.location.lon)
           ],
           routeWhileDragging: true,
-          createMarker: function () {
+          createMarker: function() {
             return null;
           }
         }).addTo(map);
+      } else {
+        routing.spliceWaypoints(1, 1, [tapahtuma.location.lat, tapahtuma.location.lon]);
+      }
     });
 
     const ajat = document.createElement('p');
@@ -94,7 +96,6 @@ haeEventit().then(function(jarjesta) {
     artikkeli.appendChild(kuvaus);
     artikkeli.appendChild(osoite);
     artikkeli.appendChild(ajat);
-    artikkeli.appendChild(naytanappi);
     artikkeli.appendChild(navi);
     if (tapahtuma.info_url != null) {
       const linkki = document.createElement('a');
@@ -111,7 +112,7 @@ haeEventit().then(function(jarjesta) {
 
 // Funktio, joka ajetaan, kun paikkatiedot on haettu
 function success(pos) {
-  window.crd = pos.coords;
+  crd = pos.coords;
   map.setView([crd.latitude, crd.longitude], 12);
   L.marker([crd.latitude, crd.longitude], {icon: omaIkoni}).addTo(map)
       .bindPopup('Olet tässä', {autoClose: false}).openPopup();
@@ -122,11 +123,12 @@ function error(err) {
   console.warn(`ERROR(${err.code}): ${err.message}`);
 }
 
+// Funktio joka ilmaisee punaisella värillä tapahtuman listassa jota on klikattu kartasta
 function vari(element) {
   const alku = element.style.backgroundColor;
-  element.style.backgroundColor="#E27E7E";
+  element.style.backgroundColor="#adfc8e";
   setTimeout(function() {
-    element.style.backgroundColor=alku;
+    element.style.backgroundColor = alku;
   }, 1000);
 }
 
@@ -136,15 +138,6 @@ function lisaaPiste(lon, lat, nimi, icon) {
   marker.bindPopup(nimi);
   layer.addLayer(marker).addTo(map);
   return marker;
-}
-
-function avaaPiste(lon, lat, nimi, icon) {
-
-}
-
-// Funktio reitityksen sulkuun
-function suljeNavi() {
-    routing.spliceWaypoints(0, 2);
 }
 
 // Funktio tapahtumien hakuun ja niiden järjestäminen tämän hetkisestä kellonajasta alkaen
