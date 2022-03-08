@@ -2,10 +2,6 @@
 
 console.log("ganggagn");
 
-//Saa INFO napin toimimaan
-document.getElementById("navbar").onclick = function () {
-  location.href = "info.html";
-};
 function saa(cityID) {
   var key = '77fa5083f376659f1844079991d6326b';
   fetch('https://api.openweathermap.org/data/2.5/weather?id=' + cityID + '&appid=' + key + '&units=metric')

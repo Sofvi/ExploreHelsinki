@@ -1,11 +1,5 @@
 'use strict';
 
-//Saa INFO napin toimimaan
-document.getElementById("navbar").onclick = function () {
-  location.href = "info.html";
-};
-
-
 const map = L.map('map');
 const wifiIcon = L.icon({
   iconUrl: 'img/wifi-icon.png',

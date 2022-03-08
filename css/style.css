@@ -106,14 +106,16 @@ em {
 }
 #navbar ul {
     position: absolute;
-    display: table;
+    display: none;
     list-style: none;
     width: 800px;
     margin: 0 auto;
-    padding: 0; }
+    padding: 0;
+}
 #navbar li {
-    display: inline-block;
-    float: left; }
+    display: block;
+    float: left;
+}
 #navbar li a {
     font-size: 16px;
     display: block;
@@ -125,45 +127,17 @@ em {
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
     color: #023e8a;
-    border-right: 1px solid #ccc; }
-.dropdown {
-    float: left;
-    overflow: hidden;
+    border-right: 1px solid #ccc;
 }
-.dropdown .dropBTN {
-    padding: 10px 88px;
-    font-size: 16px;
-    border: none;
-    outline: none;
-    background-color: inherit;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: bold;
-    color: #023e8a;
-    margin: 0;
-}
-.dropdown-content {
-    display: none;
-    position: absolute;
-    z-index: 9999;
+#navbar li li a {
     background-color: white;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: bold;
+    font-size: 15px;
 }
-.dropdown-content a {
-    float: none;
-    color: #023e8a;
-    padding: 12px 16px;
-    text-decoration: none;
+#navbar li:hover ul {
     display: block;
-    text-align: left;
+    z-index: 9999;
 }
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-.navbar a:hover, .dropdown:hover .dropBTN {
-    background-color: lightgoldenrodyellow;
-}
-.navbar a:hover, .dropdown-content a:hover {
+.navbar a:hover, .li:hover {
     background-color: lightgoldenrodyellow;
 }
 #navbar li:first-child a {
@@ -291,6 +265,14 @@ em {
 /********MEDIA QUERY********/
 /*Keskikokoiselle näytölle*/
 @media only screen and (min-width: 600px) and (max-width: 1500px) {
+    #navbar ul {
+        display: none;
+    }
+    #navbar li:hover ul {
+        display: block;
+        width: 100%;
+        position: center;
+    }
     #navbar li {
         width: 100%;
         position: center;
@@ -299,8 +281,8 @@ em {
     #navbar li a {
         font-size: 13px;
     }
-    .dropdown .dropBTN {
-        display: none;
+    #navbar li li a {
+        font-size: 12px;
     }
     #pics .tips {
         float: top;
@@ -399,6 +381,14 @@ em {
 }
 /*Pienelle näytölle*/
 @media only screen and (max-width: 600px) {
+    #navbar ul {
+        display: none;
+    }
+    #navbar li:hover ul {
+        display: block;
+        width: 100%;
+        position: center;
+    }
     #navbar li {
         width: 100%;
         position: center;
@@ -407,8 +397,8 @@ em {
     #navbar li a {
         font-size: 13px;
     }
-    .dropdown .dropBTN {
-        display: none;
+    #navbar li li a {
+        font-size: 12px;
     }
     #container img {
         display: none;

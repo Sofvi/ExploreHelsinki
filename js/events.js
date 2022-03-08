@@ -19,11 +19,6 @@ const options = {
 // Paikkatiedon haun käynnistys
 navigator.geolocation.getCurrentPosition(success, error, options);
 
-//Saa INFO napin toimimaan
-document.getElementById("navbar").onclick = function () {
-  location.href = "info.html";
-};
-
 // Punainen markkeri omaan sijaintiin
 const omaIkoni = new L.Icon({
   iconUrl: 'img/oma-ikoni1.png',
