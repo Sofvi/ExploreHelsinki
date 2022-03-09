@@ -88,17 +88,19 @@ em {
     float: right;
     margin-right: 80px;
 }
-/*
-#zivu {
-    max-width: 90%;
-}
- */
 
 /******** NAVBAR STYLE ********/
 #home {
     padding-top: 0;
     height: 30px;
     width: 30px;
+}
+#navbar .dropdown {
+    background-color: white;
+    font-size: 15px;
+    float: right;
+    position: center;
+    right: 0;
 }
 #navbar {
     width: 100%;
@@ -120,6 +122,7 @@ em {
 #navbar li {
     display: block;
     float: left;
+    text-align: center;
 }
 #navbar li a {
     font-size: 16px;
@@ -134,10 +137,6 @@ em {
     color: #023e8a;
     border-right: 1px solid #ccc;
 }
-#navbar li li a {
-    background-color: white;
-    font-size: 15px;
-}
 #navbar li:hover ul {
     display: block;
     z-index: 9999;
@@ -146,10 +145,12 @@ em {
     background-color: lightgoldenrodyellow;
 }
 #navbar li:first-child a {
-    border-left: 1px solid #ccc; }
+    border-left: 1px solid #ccc;
+}
 #navbar li a:hover {
     color: #023e8a;
-    background-color: lightgoldenrodyellow; }
+    background-color: lightgoldenrodyellow;
+}
 .navbar .icon {
     display: none;
 }
@@ -162,7 +163,6 @@ em {
 
 #vasenpuoli {
     list-style: none;
-    max-width: 90%;
 }
 #vasenpuoli .es {
     float: right;
@@ -221,7 +221,6 @@ em {
 /********WLAN*******/
 #kartta {
     list-style: none;
-    max-width: 90%;
 }
 #kartta .wlan-map {
     float: right;
@@ -277,9 +276,22 @@ em {
     display: block;
 }
 
+/********MAKERS STYLE********/
+#makers {
+    background-color: #7F9183;
+}
+#makers .mak {
+    float: left;
+    margin-left: 50px;
+    margin-top: 19px;
+    height: auto;
+    border: 4px solid black;
+    width: 289px;
+}
+
 /********MEDIA QUERY********/
 /*Keskikokoiselle näytölle*/
-@media only screen and (min-width: 600px) and (max-width: 1500px) {
+@media only screen and (min-width: 600px) and (max-width: 1300px) {
     #navbar ul {
         display: none;
     }
