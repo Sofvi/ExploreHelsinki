@@ -289,6 +289,47 @@ em {
     width: 289px;
 }
 
+/********VIDEO STYLE********/
+#video {
+    background-color: #7F9183;
+}
+aside {
+    margin: 20px;
+    font-size: 20px;
+}
+/********VIDEO PLAN STYLE********/
+#videoplan {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #7F9183;
+}
+#plan {
+    width: 400px;
+    height: auto;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+#syno {
+    float: right;
+    margin-top: 20px;
+    margin-right: 550px;
+    width: 500px;
+    height: auto;
+}
+#videoplan h1 {
+    padding: 10px 10px 10px 50px;
+}
+#videoplan p {
+    margin-left: 50px;
+    margin-right: 550px;
+    background-color: white;
+    padding: 20px;
+}
+audio {
+    top: 545px;
+    position: absolute;
+    margin-right: 50px;
+    margin-left: 470px;
+}
 /********MEDIA QUERY********/
 /*Keskikokoiselle näytölle*/
 @media only screen and (min-width: 600px) and (max-width: 1300px) {
@@ -532,6 +573,11 @@ em {
         background-color: white;
         width: auto;
         padding: 15px 30px 10px;
+    }
+}
+@media only screen and (min-width: 1300px) {
+    #events {
+        max-width: 100%;
     }
 }
 
