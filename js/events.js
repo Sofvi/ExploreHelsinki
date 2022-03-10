@@ -115,7 +115,7 @@ function success(pos) {
   crd = pos.coords;
   map.setView([crd.latitude, crd.longitude], 12);
   L.marker([crd.latitude, crd.longitude], {icon: omaIkoni}).addTo(map)
-      .bindPopup('Olet tässä', {autoClose: false}).openPopup();
+      .bindPopup('You are here', {autoClose: false}).openPopup();
 }
 
 // Funktio, joka ajetaan, jos paikkatietojen hakemisessa tapahtuu virhe
