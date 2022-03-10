@@ -45,7 +45,7 @@ function piste(longitude, latitude) {
     addTo(map);
 }
 
-
+// funktio jolla otetaan data Helsingin alueen Wifi verkoista
 async function otaWlan() {
   const vastaus = await fetch('internet.geojson');
   const data = await vastaus.json();
@@ -60,7 +60,8 @@ async function otaWlan() {
     }
 
   }
-
+// Sama funktio kuin edellisessä, mutta tässä funktiossa, 
+//jos datassa ei ole merkitty missä Wifi verkko on, niin popupia ei ilmesty
   async function otaWifi() {
     const answer = await fetch('wifi.geojson');
     const wifi = await answer.json();

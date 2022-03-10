@@ -1,7 +1,7 @@
 'use strict';
 
-console.log("ganggagn");
 
+// funktio jolla otetaan sää data openweathermapista
 function saa(cityID) {
   var key = '77fa5083f376659f1844079991d6326b';
   fetch('https://api.openweathermap.org/data/2.5/weather?id=' + cityID + '&appid=' + key + '&units=metric')
@@ -20,6 +20,7 @@ window.onload = function () {
   saa(658225);
 
 }
+// funktio joka tulostaa datan
 function tulostaSaa(data) {
   const { name } = data;
   const { icon, description } = data.weather[0];
@@ -30,7 +31,7 @@ function tulostaSaa(data) {
   const { speed } = data.wind;
   const rSun = convertTime(sunrise);
   const sSun = convertTime(sunset);
-
+//lisätään data DOM elementteihin
   console.log(name, icon, description, temp, humidity, rSun, sSun);
   document.querySelector(".temp").innerHTML = temp + 'ºC';
   document.querySelector(".tuuli").innerHTML = "Wind: " + speed + " m/s"
@@ -43,7 +44,7 @@ function tulostaSaa(data) {
 
 
 }
-
+// muuntaa unix ajan oikeaksi ajaksi
 function convertTime(unixTime) {
   let dt = new Date(unixTime * 1000)
   let h = dt.getHours()
