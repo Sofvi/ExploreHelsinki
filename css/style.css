@@ -15,13 +15,14 @@ body {
 #good-to-know {
     background-color: #7F9183;
     position: relative;
+    max-width: 100%;
 }
 
 #tips-text {
     text-align: justify;
     margin-right: 0;
-    margin-left: 400px;
-    margin-top: 35px;
+    margin-left: 27%;
+    margin-top: 2%;
     font-family: 'Open Sans', sans-serif;
     font-size: 17px;
     background-color: white;
@@ -35,8 +36,8 @@ em {
 
 #pics .tips{
     float: left;
-    margin-left: 22px;
-    margin-top: 19px;
+    margin-left: 5%;
+    margin-top: 5%;
     height: auto;
     border: 4px solid black;
     width: 289px;
@@ -45,8 +46,8 @@ em {
 
 #pics .hki{
     float: left;
-    margin-left: 22px;
-    margin-top: 23px;
+    margin-left: 5%;
+    margin-top: 7%;
     height: auto;
     border: 4px solid black;
     width: 289px;
@@ -56,6 +57,10 @@ em {
 #pics li {
     list-style: none;
     max-width: 300px;
+}
+#good-to-know .weather {
+    margin-top: 15%;
+    margin-right: 5%;
 }
 
 /******** LINKS PAGE STYLE ********/
@@ -98,9 +103,9 @@ em {
 #navbar .dropdown {
     background-color: white;
     font-size: 15px;
-    float: right;
-    position: center;
-    right: 0;
+    margin-right: 18%;
+    width: 19%;
+    position: absolute;
 }
 #navbar {
     width: 100%;
@@ -293,9 +298,12 @@ em {
 #video {
     background-color: #7F9183;
 }
-aside {
-    margin: 20px;
-    font-size: 20px;
+video {
+    position: center;
+    margin-left: 15%;
+    margin-top: 2%;
+    width: 70%;
+    height: auto;
 }
 /********VIDEO PLAN STYLE********/
 #videoplan {
@@ -329,6 +337,15 @@ audio {
     position: absolute;
     margin-right: 50px;
     margin-left: 470px;
+}
+#audio {
+    float: right;
+    width: 500px;
+    height: auto;
+    margin-right: 550px;
+    margin-left: 25px;
+    top: 630px;
+    position: absolute;
 }
 /********MEDIA QUERY********/
 /*Keskikokoiselle näytölle*/
