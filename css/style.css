@@ -15,14 +15,13 @@ body {
 #good-to-know {
     background-color: #7F9183;
     position: relative;
-    max-width: 100%;
 }
 
 #tips-text {
     text-align: justify;
     margin-right: 0;
-    margin-left: 27%;
-    margin-top: 2%;
+    margin-left: 400px;
+    margin-top: 35px;
     font-family: 'Open Sans', sans-serif;
     font-size: 17px;
     background-color: white;
@@ -36,8 +35,8 @@ em {
 
 #pics .tips{
     float: left;
-    margin-left: 5%;
-    margin-top: 5%;
+    margin-left: 22px;
+    margin-top: 19px;
     height: auto;
     border: 4px solid black;
     width: 289px;
@@ -46,8 +45,8 @@ em {
 
 #pics .hki{
     float: left;
-    margin-left: 5%;
-    margin-top: 7%;
+    margin-left: 22px;
+    margin-top: 23px;
     height: auto;
     border: 4px solid black;
     width: 289px;
@@ -57,10 +56,6 @@ em {
 #pics li {
     list-style: none;
     max-width: 300px;
-}
-#good-to-know .weather {
-    margin-top: 15%;
-    margin-right: 5%;
 }
 
 /******** LINKS PAGE STYLE ********/
@@ -93,19 +88,17 @@ em {
     float: right;
     margin-right: 80px;
 }
+/*
+#zivu {
+    max-width: 90%;
+}
+ */
 
 /******** NAVBAR STYLE ********/
 #home {
     padding-top: 0;
     height: 30px;
     width: 30px;
-}
-#navbar .dropdown {
-    background-color: white;
-    font-size: 15px;
-    margin-right: 18%;
-    width: 19%;
-    position: absolute;
 }
 #navbar {
     width: 100%;
@@ -127,7 +120,6 @@ em {
 #navbar li {
     display: block;
     float: left;
-    text-align: center;
 }
 #navbar li a {
     font-size: 16px;
@@ -142,6 +134,10 @@ em {
     color: #023e8a;
     border-right: 1px solid #ccc;
 }
+#navbar li li a {
+    background-color: white;
+    font-size: 15px;
+}
 #navbar li:hover ul {
     display: block;
     z-index: 9999;
@@ -150,12 +146,10 @@ em {
     background-color: lightgoldenrodyellow;
 }
 #navbar li:first-child a {
-    border-left: 1px solid #ccc;
-}
+    border-left: 1px solid #ccc; }
 #navbar li a:hover {
     color: #023e8a;
-    background-color: lightgoldenrodyellow;
-}
+    background-color: lightgoldenrodyellow; }
 .navbar .icon {
     display: none;
 }
@@ -168,6 +162,7 @@ em {
 
 #vasenpuoli {
     list-style: none;
+    max-width: 90%;
 }
 #vasenpuoli .es {
     float: right;
@@ -226,6 +221,7 @@ em {
 /********WLAN*******/
 #kartta {
     list-style: none;
+    max-width: 90%;
 }
 #kartta .wlan-map {
     float: right;
@@ -281,75 +277,30 @@ em {
     display: block;
 }
 
-/********MAKERS STYLE********/
+/********MAKERS********/
 #makers {
     background-color: #7F9183;
 }
-#makers .mak {
-    float: left;
-    margin-left: 50px;
-    margin-top: 19px;
-    height: auto;
-    border: 4px solid black;
-    width: 289px;
+#tekijat li{
+    list-style-type: none;
+}
+#tekijat {
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+    margin-top: 100px;
+}
+figcaption {
+    text-align: center;
 }
 
-/********VIDEO STYLE********/
-#video {
-    background-color: #7F9183;
-}
-video {
-    position: center;
-    margin-left: 15%;
-    margin-top: 2%;
-    width: 70%;
-    height: auto;
-}
-/********VIDEO PLAN STYLE********/
-#videoplan {
-    font-family: 'Open Sans', sans-serif;
-    background-color: #7F9183;
-}
-#plan {
-    width: 400px;
-    height: auto;
-    margin-left: 50px;
-    margin-top: 20px;
-}
-#syno {
-    float: right;
-    margin-top: 20px;
-    margin-right: 550px;
-    width: 500px;
-    height: auto;
-}
-#videoplan h1 {
-    padding: 10px 10px 10px 50px;
-}
-#videoplan p {
-    margin-left: 50px;
-    margin-right: 550px;
-    background-color: white;
-    padding: 20px;
-}
-audio {
-    top: 545px;
-    position: absolute;
-    margin-right: 50px;
-    margin-left: 470px;
-}
-#audio {
-    float: right;
-    width: 500px;
-    height: auto;
-    margin-right: 550px;
-    margin-left: 25px;
-    top: 630px;
-    position: absolute;
-}
 /********MEDIA QUERY********/
 /*Keskikokoiselle näytölle*/
-@media only screen and (min-width: 600px) and (max-width: 1300px) {
+@media only screen and (min-width: 600px) and (max-width: 1500px) {
+    #tekijat {
+        display: inline;
+        text-align: center;
+    }
     #navbar ul {
         display: none;
     }
@@ -464,8 +415,13 @@ audio {
        margin-top: 200px;
    }
 }
+
 /*Pienelle näytölle*/
 @media only screen and (max-width: 600px) {
+    #tekijat {
+        display: inline;
+        text-align: center;
+    }
     #navbar ul {
         display: none;
     }
@@ -590,11 +546,6 @@ audio {
         background-color: white;
         width: auto;
         padding: 15px 30px 10px;
-    }
-}
-@media only screen and (min-width: 1300px) {
-    #events {
-        max-width: 100%;
     }
 }
 
